@@ -29,9 +29,13 @@ public class BaseTest
         {
            driver=new FirefoxDriver();
         }
-        else
+        else if (browserName.equalsIgnoreCase("Edge"))
         {
             driver = new EdgeDriver();
+        }
+        else
+        {
+            System.out.println("please select proper browser");
         }
         driver.get(url);
         driver.manage().window().maximize();

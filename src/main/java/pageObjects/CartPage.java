@@ -1,15 +1,44 @@
 package pageObjects;
 
+import Abstractcomponents.Abstractcomponent;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CartPage
+import java.util.List;
+
+public class CartPage extends Abstractcomponent
 {
     WebDriver driver;
     public CartPage(WebDriver driver)
     {
+        super(driver);
         this.driver=driver;
         PageFactory.initElements(driver,this);
     }
-    
+
+    @FindBy(xpath = "//div[@class='card']")
+    List<WebElement> products;
+
+    By itemName = By.tagName("h5");
+    By AddToCart = By.cssSelector("button:nth-of-type(2)");
+
+    By productMsg = By.xpath("//div[contains(text(),'Product Added To Cart ')]");
+    public void selectProduct(String productName) throws InterruptedException
+    {
+        for(WebElement product:products)
+        {
+            String productText = product.findElement(itemName).getText();
+            if(productText.equalsIgnoreCase(productName))
+            {
+                System.out.println("Product Name is "+productName);
+                product.findElement(AddToCart).click();
+                Thread.sleep(2000);
+            }
+        }
+        waitForElementToAppear(productMsg);
+    }
+
 }
