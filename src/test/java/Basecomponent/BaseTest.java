@@ -46,12 +46,14 @@ public class BaseTest
     @BeforeTest(alwaysRun = true)
     public void openBrowser() throws IOException
     {
+        System.out.println("open browser");
        driver =initializeDriver();
     }
 
     @AfterTest(alwaysRun = true)
     public void closeBrowser()
     {
+        System.out.println("close browser");
         driver.quit();
     }
 }
