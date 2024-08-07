@@ -21,12 +21,12 @@ public class CheckoutPage extends Abstractcomponent
     }
 
     @FindBy(xpath = "//div[@class='cartSection']")
-    List<WebElement> Items;
+    public List<WebElement> Items;
 
     By itemText = By.tagName("h3");
 
     @FindBy(xpath="//button[text()='Checkout']")
-    WebElement checkout;
+    public WebElement checkout;
 
     public void checkProduct(String productName) throws InterruptedException {
        for(WebElement eachItem : Items)

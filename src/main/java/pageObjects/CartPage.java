@@ -20,7 +20,7 @@ public class CartPage extends Abstractcomponent
     }
 
     @FindBy(xpath = "//div[@class='card']")
-    List<WebElement> products;
+    public List<WebElement> products;
 
     By itemName = By.tagName("h5");
     By AddToCart = By.cssSelector("button:nth-of-type(2)");

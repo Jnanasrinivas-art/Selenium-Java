@@ -20,13 +20,13 @@ public class PaymentPage extends Abstractcomponent
     }
 
     @FindBy(xpath = "//input[@placeholder='Select Country']")
-    WebElement country;
+    public WebElement country;
 
     @FindBy(css = ".ta-item")
-    List<WebElement> countries;
+    public List<WebElement> countries;
 
     @FindBy(xpath = "//a[@class='btnn action__submit ng-star-inserted']")
-    WebElement placeOrder;
+    public WebElement placeOrder;
 
     By dropdown = By.cssSelector(".ta-results");
 
@@ -54,7 +54,12 @@ public class PaymentPage extends Abstractcomponent
        scrollTillElement(placeOrder);
        Thread.sleep(2000);
        placeOrder.click();
-        Thread.sleep(3000);
+       Thread.sleep(3000);
+    }
+
+    public String validateConfirmationMsg()
+    {
+        return SucMsg.getText();
     }
 
 }

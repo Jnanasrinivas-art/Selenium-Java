@@ -17,13 +17,13 @@ public class LandingPage extends Abstractcomponent
     }
 
     @FindBy(xpath = "//input[@placeholder='email@example.com']")
-    WebElement username;
+    public WebElement username;
 
     @FindBy(xpath = "//input[@id='userPassword']")
-    WebElement password;
+    public WebElement password;
 
     @FindBy(xpath = "//input[@id='login']")
-    WebElement login;
+    public WebElement login;
 
     public void loginApplication(String Username,String Password) throws InterruptedException
     {

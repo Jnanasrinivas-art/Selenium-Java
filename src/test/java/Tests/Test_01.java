@@ -1,7 +1,9 @@
 package Tests;
 
 import Basecomponent.BaseTest;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pageObjects.CartPage;
 import pageObjects.CheckoutPage;
 import pageObjects.LandingPage;
@@ -19,6 +21,8 @@ public class Test_01 extends BaseTest
     String productName="IPHONE 13 PRO";
 
     String countryName="India";
+    String finalSucMsg ="THANKYOU FOR THE ORDER.";
+    String confirmationMsg="";
 
       @Test(priority = 1,description = "Login into the Application")
       public void Test1() throws InterruptedException
@@ -47,6 +51,8 @@ public class Test_01 extends BaseTest
     {
         pp = new PaymentPage(driver);
         pp.selectCountry(countryName);
+        confirmationMsg = pp.validateConfirmationMsg();
+        Assert.assertEquals(confirmationMsg,finalSucMsg);
     }
 
 }

@@ -21,7 +21,10 @@ public class Abstractcomponent
     }
 
     @FindBy(xpath = "//button[@routerlink='/dashboard/cart']")
-    WebElement CartPage;
+    public WebElement CartPage;
+
+    @FindBy(xpath = "//h1[@class='hero-primary']")
+    public WebElement SucMsg;
 
     public void waitForElementToAppear(By element)
     {
@@ -38,7 +41,6 @@ public class Abstractcomponent
     {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
-
     }
 
 }
