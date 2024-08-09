@@ -6,6 +6,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import pageObjects.LandingPage;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -21,6 +22,7 @@ public class BaseTest
         prop.load(fis);
         String browserName = prop.getProperty("browser");
         String url = prop.getProperty("base_url");
+
         if(browserName.equalsIgnoreCase("chrome"))
         {
           driver= new ChromeDriver();

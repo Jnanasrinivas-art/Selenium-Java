@@ -13,7 +13,8 @@ import java.time.Duration;
 
 public class Abstractcomponent
 {
-    WebDriver driver;
+   public WebDriver driver;
+
     public Abstractcomponent(WebDriver driver)
     {
         this.driver=driver;

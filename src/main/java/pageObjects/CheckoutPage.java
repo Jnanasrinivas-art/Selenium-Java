@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CheckoutPage extends Abstractcomponent
 {
-    WebDriver driver;
+    public WebDriver driver;
     public CheckoutPage(WebDriver driver)
     {
         super(driver);

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CartPage extends Abstractcomponent
 {
-    WebDriver driver;
+    public WebDriver driver;
     public CartPage(WebDriver driver)
     {
         super(driver);

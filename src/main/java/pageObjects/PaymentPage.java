@@ -11,7 +11,7 @@ import java.util.List;
 
 public class PaymentPage extends Abstractcomponent
 {
-    WebDriver driver;
+    public WebDriver driver;
     public PaymentPage(WebDriver driver)
     {
         super(driver);
