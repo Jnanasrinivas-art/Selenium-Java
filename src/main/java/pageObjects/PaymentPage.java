@@ -28,6 +28,9 @@ public class PaymentPage extends Abstractcomponent
     @FindBy(xpath = "//a[@class='btnn action__submit ng-star-inserted']")
     public WebElement placeOrder;
 
+    @FindBy(xpath = "//h1[@class='hero-primary']")
+    WebElement SucMsg;
+
     By dropdown = By.cssSelector(".ta-results");
 
 
