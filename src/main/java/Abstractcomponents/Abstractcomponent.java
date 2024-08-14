@@ -43,8 +43,7 @@ public class Abstractcomponent
         CartPage.click();
     }
 
-    public void scrollTillElement(WebElement element)
-    {
+    public void scrollTillElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
