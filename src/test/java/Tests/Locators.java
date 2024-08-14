@@ -13,8 +13,7 @@ public class Locators
     WebDriver driver;
 
     @Test
-    public void locatorExamples()
-    {
+    public void locatorExamples() throws InterruptedException {
         driver= new ChromeDriver();
         driver.get("https://rahulshettyacademy.com/client");
         driver.manage().window().maximize();
@@ -40,7 +39,23 @@ public class Locators
         //tagName[@attribute="value"]
         WebElement home = driver.findElement(By.xpath("//button[@class='btn btn-custom']"));
         home.click();
-        
+
+        //Using contains
+        WebElement Signout = driver.findElement(By.xpath("//button[@class='btn btn-custom' and contains(.,' Sign Out ')]"));
+        Signout.click();
+        Thread.sleep(2000);
+
+        //Using css parent-child traversing
+        WebElement username1 = driver.findElement(By.cssSelector("div input"));
+        username1.sendKeys("jnanasr@gmail.com");
+
+        WebElement password1 = driver.findElement(By.cssSelector("form div:nth-child(2) input"));
+        password1.sendKeys("Krishna1992@");
+        Thread.sleep(3000);
+        WebElement login1 = driver.findElement(By.cssSelector("input.btn"));
+        login1.click();
+
+
 
     }
 
