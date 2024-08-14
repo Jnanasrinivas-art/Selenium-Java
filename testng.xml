@@ -4,6 +4,7 @@
     <test verbose="2" preserve-order="true" name="D:/Newcode">
         <classes>
             <class name="Tests.Test_01"/>
+            <class name="Tests.Test_02"/>
         </classes>
     </test>
 </suite>

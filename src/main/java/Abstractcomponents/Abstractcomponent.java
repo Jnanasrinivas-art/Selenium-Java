@@ -10,9 +10,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Random;
 
 public class Abstractcomponent
 {
+    Random ra;
+    long num;
+    String s;
    public WebDriver driver;
 
     public Abstractcomponent(WebDriver driver)
@@ -26,6 +30,7 @@ public class Abstractcomponent
 
     @FindBy(xpath = "//h1[@class='hero-primary']")
     public WebElement SucMsg;
+
 
     public void waitForElementToAppear(By element)
     {
@@ -43,5 +48,4 @@ public class Abstractcomponent
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
-
 }
