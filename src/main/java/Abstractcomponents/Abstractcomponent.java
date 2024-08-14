@@ -47,4 +47,5 @@ public class Abstractcomponent
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
+    
 }
