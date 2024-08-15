@@ -46,6 +46,10 @@ public class Locators
         Thread.sleep(2000);
 
         //Using css parent-child traversing
+        //Syntax : parent child
+        //Using xpath parent-child traversing
+        //Syntax : //parent/child
+
         WebElement username1 = driver.findElement(By.cssSelector("div input"));
         username1.sendKeys("jnanasr@gmail.com");
 
