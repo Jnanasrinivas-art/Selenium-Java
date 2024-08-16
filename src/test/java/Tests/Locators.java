@@ -56,13 +56,17 @@ public class Locators
         WebElement password1 = driver.findElement(By.cssSelector("form div:nth-child(2) input"));
         password1.sendKeys("Krishna1992@");
         Thread.sleep(3000);
+
         WebElement login1 = driver.findElement(By.cssSelector("input.btn"));
         login1.click();
 
         WebElement AddToCart = driver.findElement(By.xpath("//button[contains(@class,'w-10 rounded')]"));
         AddToCart.click();
 
+        Thread.sleep(6000);
 
+        WebElement Cart = driver.findElement(By.cssSelector("button[routerlink*='cart']"));
+        Cart.click();
 
     }
 
