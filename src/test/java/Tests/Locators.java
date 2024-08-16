@@ -60,10 +60,14 @@ public class Locators
         WebElement login1 = driver.findElement(By.cssSelector("input.btn"));
         login1.click();
 
+        //dynamic xpath
+
         WebElement AddToCart = driver.findElement(By.xpath("//button[contains(@class,'w-10 rounded')]"));
         AddToCart.click();
 
         Thread.sleep(6000);
+
+        //dynamic css
 
         WebElement Cart = driver.findElement(By.cssSelector("button[routerlink*='cart']"));
         Cart.click();
