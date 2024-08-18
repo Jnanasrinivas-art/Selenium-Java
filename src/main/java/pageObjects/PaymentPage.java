@@ -60,8 +60,7 @@ public class PaymentPage extends Abstractcomponent
        Thread.sleep(3000);
     }
 
-    public String validateConfirmationMsg()
-    {
+    public String validateConfirmationMsg()  {
         return SucMsg.getText();
     }
 
