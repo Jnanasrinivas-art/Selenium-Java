@@ -16,14 +16,13 @@ public class DataproviderC extends BaseTest
     LandingPage lp;
     CartPage cp;
     String finalSucMsg ="THANKYOU FOR THE ORDER.";
-    String productName="IPHONE 13 PRO";
     String countryName="India";
     String confirmationMsg="";
     CheckoutPage chp;
     PaymentPage pp;
 
     @Test(description = "Cart process",dataProvider = "getData")
-    public void Process(String username,String password) throws InterruptedException {
+    public void Process(String username,String password,String productName) throws InterruptedException {
         lp = new LandingPage(driver);
         lp.loginApplication(username,password);
         cp = new CartPage(driver);
@@ -44,8 +43,8 @@ public class DataproviderC extends BaseTest
     {
        return new Object[][]
                {
-                       {"jnanasr@gmail.com","Krishna1992@"},
-                       {"anshika@gmail.com","Iamking@000"},
+                       {"jnanasr@gmail.com","Krishna1992@","IPHONE 13 PRO"},
+                       {"anshika@gmail.com","Iamking@000","IPHONE 13 PRO"}
                };
     }
 

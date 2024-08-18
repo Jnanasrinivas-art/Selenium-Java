@@ -47,12 +47,11 @@ public class Locators
 
         //Using css parent-child traversing
         //Syntax : parent child
-        //Using xpath parent-child traversing
-        //Syntax : //parent/child
-
         WebElement username1 = driver.findElement(By.cssSelector("div input"));
         username1.sendKeys("jnanasr@gmail.com");
 
+        //Using xpath parent-child traversing
+        //Syntax : //parent/child
         WebElement password1 = driver.findElement(By.cssSelector("form div:nth-child(2) input"));
         password1.sendKeys("Krishna1992@");
         Thread.sleep(3000);
@@ -60,15 +59,14 @@ public class Locators
         WebElement login1 = driver.findElement(By.cssSelector("input.btn"));
         login1.click();
 
-        //dynamic xpath
+        //dynamic xpath and css if only some part of attribute is constant, remaining part is dynamic
 
+        // 1)Using xpath
         WebElement AddToCart = driver.findElement(By.xpath("//button[contains(@class,'w-10 rounded')]"));
         AddToCart.click();
-
         Thread.sleep(6000);
 
-        //dynamic css
-
+        // 2)Using css
         WebElement Cart = driver.findElement(By.cssSelector("button[routerlink*='cart']"));
         Cart.click();
 
