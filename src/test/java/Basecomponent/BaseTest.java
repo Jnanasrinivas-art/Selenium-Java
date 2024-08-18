@@ -48,6 +48,7 @@ public class BaseTest
     public void openBrowser() throws IOException
     {
        driver =initializeDriver();
+
     }
 
     @AfterClass(alwaysRun = true)
