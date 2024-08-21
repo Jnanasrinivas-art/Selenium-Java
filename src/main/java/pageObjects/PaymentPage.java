@@ -7,13 +7,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.IOException;
 import java.util.List;
 
 public class PaymentPage extends Abstractcomponent
 {
     public WebDriver driver;
-    public PaymentPage(WebDriver driver)
-    {
+    public PaymentPage(WebDriver driver) {
         super(driver);
         this.driver=driver;
         PageFactory.initElements(driver,this);

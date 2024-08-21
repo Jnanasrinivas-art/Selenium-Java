@@ -9,6 +9,8 @@ import pageObjects.CheckoutPage;
 import pageObjects.LandingPage;
 import pageObjects.PaymentPage;
 
+import java.io.IOException;
+
 public class Test_01 extends BaseTest
 {
     LandingPage lp;
@@ -37,7 +39,7 @@ public class Test_01 extends BaseTest
           cp = new CartPage(driver);
           cp.selectProduct(productName);
           cp.clickCartPage();
-          Thread.sleep(7000);
+          Thread.sleep(2400);
       }
 
     @Test(priority = 3,description = "Navigate  to CartPage and Checkout")
