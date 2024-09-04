@@ -4,6 +4,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.util.NumberToTextConverter;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -14,10 +15,21 @@ import java.util.Iterator;
 
 public class DataDriven
 {
-    public  ArrayList<String> getData(String sheetName,String testCaseName) throws IOException {
+    // Selenium WebDriver be default does not support Excel,need to use third party library Apache POI
+    public  static ArrayList<String> getData(String sheetName,String testCaseName) throws IOException {
         ArrayList<String> a = new ArrayList<String>();
-        //fileInputStream for input files
+
+        //fileInputStream for reading mode
+        //FileOutputStream for writing mode
+
         FileInputStream fis = new FileInputStream("C:\\Users\\Administrator\\Downloads\\Data.xlsx");
+
+        // Below 4 are the class
+        //XSSFWorkbook    --- workbook
+        //XSSFSheet       --- Sheet
+        //XSSFRow         --- Row
+        //XSSFCell        --- Cell
+
         XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
         //count no of Sheets
