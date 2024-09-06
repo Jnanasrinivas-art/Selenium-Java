@@ -2,12 +2,7 @@ package Tests;
 
 import Basecomponent.BaseTest;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pageObjects.CartPage;
-import pageObjects.CheckoutPage;
-import pageObjects.LandingPage;
-import pageObjects.PaymentPage;
 
 import java.io.IOException;
 

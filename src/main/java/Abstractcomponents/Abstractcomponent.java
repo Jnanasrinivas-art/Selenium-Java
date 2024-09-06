@@ -1,7 +1,6 @@
 package Abstractcomponents;
 
 import excelData.DataDriven;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Random;
 
 
 public class Abstractcomponent
@@ -22,6 +22,8 @@ public class Abstractcomponent
 
    String Username;
    String Password;
+
+   //int number;
 
     public Abstractcomponent(WebDriver driver) {
         this.driver=driver;
@@ -63,9 +65,22 @@ public class Abstractcomponent
         CartPage.click();
     }
 
-    public void scrollTillElement(WebElement element) {
+    public void scrollTillElement(WebElement element)
+    {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public int randomNumGeneration()
+    {
+        Random random = new Random();
+        int number=random.nextInt();
+        int number1=random.nextInt(6);
+        int number4=random.nextInt(1,10);
+        System.out.println("Generated number "+number);
+        System.out.println("Generated number "+number1);
+        System.out.println("Generated number "+number4);
+        return number;
     }
     
 }

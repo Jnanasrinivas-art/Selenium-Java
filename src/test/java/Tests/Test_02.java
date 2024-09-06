@@ -1,14 +1,8 @@
 package Tests;
 
-import Abstractcomponents.Abstractcomponent;
 import Basecomponent.BaseTest;
-import excelData.DataDriven;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.CartPage;
-import pageObjects.CheckoutPage;
-import pageObjects.LandingPage;
-import pageObjects.PaymentPage;
 
 import java.io.IOException;
 
