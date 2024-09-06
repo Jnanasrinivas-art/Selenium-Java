@@ -1,6 +1,7 @@
 package pageObjects;
 
 import Abstractcomponents.Abstractcomponent;
+import excelData.DataDriven;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +13,9 @@ import java.util.List;
 
 public class PaymentPage extends Abstractcomponent
 {
+
+    String countryName;
+
     public WebDriver driver;
     public PaymentPage(WebDriver driver) {
         super(driver);
@@ -40,8 +44,8 @@ public class PaymentPage extends Abstractcomponent
         waitForElementToAppear(dropdown);
     }
 
-    public void selectCountry(String countryName) throws InterruptedException
-    {
+    public void selectCountry() throws InterruptedException, IOException {
+        countryName= DataDriven.readFromExcel("testdata","E",3);
        enterCountry();
        for(WebElement eachCountry : countries)
        {

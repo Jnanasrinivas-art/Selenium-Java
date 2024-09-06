@@ -1,11 +1,15 @@
 package Basecomponent;
 
+import Abstractcomponents.Abstractcomponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
+import pageObjects.CartPage;
+import pageObjects.CheckoutPage;
 import pageObjects.LandingPage;
+import pageObjects.PaymentPage;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,6 +19,12 @@ import java.util.Properties;
 public class BaseTest
 {
     public WebDriver driver;
+    protected LandingPage land_page;
+    protected CartPage cart_page;
+    protected Abstractcomponent abstrct_comp;
+    protected CheckoutPage checkout_page;
+    protected PaymentPage payment_page;
+
     public WebDriver initializeDriver() throws IOException {
         Properties prop = new Properties();
         FileInputStream fis = new FileInputStream("src/main/java/GlobalData.properties");
@@ -47,7 +57,12 @@ public class BaseTest
     @BeforeClass(alwaysRun = true)
     public void openBrowser() throws IOException
     {
-       driver =initializeDriver();
+        driver =initializeDriver();
+        land_page = new LandingPage(driver);
+        cart_page = new CartPage(driver);
+        abstrct_comp = new Abstractcomponent(driver);
+        checkout_page = new CheckoutPage(driver);
+        payment_page = new PaymentPage(driver);
     }
     
     @AfterClass(alwaysRun = true)

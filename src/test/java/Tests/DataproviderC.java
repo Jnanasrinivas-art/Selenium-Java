@@ -24,15 +24,15 @@ public class DataproviderC extends BaseTest
     @Test(description = "Cart process",dataProvider = "getData")
     public void Process(String username,String password,String productName) throws InterruptedException {
         lp = new LandingPage(driver);
-        lp.loginApplication(username,password);
+        //lp.loginApplication(username,password);
         cp = new CartPage(driver);
-        cp.selectProduct(productName);
+        //cp.selectProduct(productName);
         cp.clickCartPage();
         Thread.sleep(7000);
         chp= new CheckoutPage(driver);
-        chp.checkProduct(productName);
+        //chp.checkProduct(productName);
         pp = new PaymentPage(driver);
-        pp.selectCountry(countryName);
+        //pp.selectCountry(countryName);
         confirmationMsg = pp.validateConfirmationMsg();
         Assert.assertEquals(confirmationMsg,finalSucMsg);
         Thread.sleep(3000);

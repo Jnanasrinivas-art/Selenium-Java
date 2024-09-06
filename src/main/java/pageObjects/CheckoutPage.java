@@ -2,16 +2,20 @@ package pageObjects;
 
 import Abstractcomponents.Abstractcomponent;
 import dev.failsafe.internal.util.Assert;
+import excelData.DataDriven;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.IOException;
 import java.util.List;
 
 public class CheckoutPage extends Abstractcomponent
 {
+
+    String productName;
     public WebDriver driver;
     public CheckoutPage(WebDriver driver)
     {
@@ -28,7 +32,8 @@ public class CheckoutPage extends Abstractcomponent
     @FindBy(xpath="//button[text()='Checkout']")
     public WebElement checkout;
 
-    public void checkProduct(String productName) throws InterruptedException {
+    public void checkProduct() throws InterruptedException, IOException {
+        productName= DataDriven.readFromExcel("testdata","D",3);
        for(WebElement eachItem : Items)
        {
            String productText = eachItem.getText();
