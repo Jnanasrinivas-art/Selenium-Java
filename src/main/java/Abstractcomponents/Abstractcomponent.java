@@ -71,16 +71,19 @@ public class Abstractcomponent
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
-    public int randomNumGeneration()
+    public void randomNumGeneration(WebElement element)
     {
         Random random = new Random();
         int number=random.nextInt();
+        String str = String.valueOf(number);
         int number1=random.nextInt(6);
         int number4=random.nextInt(1,10);
+        String str1= String.valueOf(number1);
+        String str2= String.valueOf(number4);
         System.out.println("Generated number "+number);
         System.out.println("Generated number "+number1);
         System.out.println("Generated number "+number4);
-        return number;
+        element.sendKeys(str);
     }
     
 }

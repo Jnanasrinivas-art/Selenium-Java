@@ -25,6 +25,9 @@ public class BaseTest
     protected CheckoutPage checkout_page;
     protected PaymentPage payment_page;
 
+    public final int implicitwait=6;
+    public final int page_timeout_load=10;
+
     public WebDriver initializeDriver() throws IOException {
         Properties prop = new Properties();
         FileInputStream fis = new FileInputStream("src/main/java/GlobalData.properties");
@@ -50,7 +53,8 @@ public class BaseTest
         }
         driver.get(url);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(6));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitwait));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(page_timeout_load));
         return driver;
     }
 
