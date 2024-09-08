@@ -1,4 +1,4 @@
-package Tests;
+package SampleTest;
 
 import Basecomponent.BaseTest;
 import org.testng.Assert;
