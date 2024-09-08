@@ -30,7 +30,7 @@ public class BaseTest
 
     public WebDriver initializeDriver() throws IOException {
         Properties prop = new Properties();
-        FileInputStream fis = new FileInputStream("src/main/java/GlobalData.properties");
+        FileInputStream fis = new FileInputStream("src/main/java/globalData/GlobalData.properties");
         prop.load(fis);
         String browserName = prop.getProperty("browser");
         String url = prop.getProperty("base_url");
