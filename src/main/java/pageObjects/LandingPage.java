@@ -34,9 +34,9 @@ public class LandingPage extends Abstractcomponent
     public void loginApplication() throws InterruptedException, IOException {
         Username= DataDriven.readFromExcel("testdata","B",3);
         Password=DataDriven.readFromExcel("testdata","C",3);
-        username.sendKeys(Username);
-        password.sendKeys(Password);
-        login.click();
+        enterValues(username,Username);
+        enterValues(password,Password);
+        clickElement(login);
         Thread.sleep(3000);
     }
 

@@ -42,7 +42,8 @@ public class CheckoutPage extends Abstractcomponent
                System.out.println("The Item "+productText+"is available");
            }
        }
-       checkout.click();
+       //checkout.click();
+        clickElement(checkout);
        Thread.sleep(3000);
     }
 }

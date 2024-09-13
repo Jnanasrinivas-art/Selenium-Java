@@ -28,7 +28,6 @@ public class CartPage extends Abstractcomponent
 
     By itemName = By.tagName("h5");
     By AddToCart = By.cssSelector("button:nth-of-type(2)");
-
     By productMsg = By.xpath("//div[contains(text(),'Product Added To Cart ')]");
     public void selectProduct() throws InterruptedException, IOException {
         productName= DataDriven.readFromExcel("testdata","D",3);

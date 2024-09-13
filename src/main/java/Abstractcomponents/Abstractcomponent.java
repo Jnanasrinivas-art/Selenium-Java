@@ -48,10 +48,40 @@ public class Abstractcomponent
     public void loginApplication() throws InterruptedException, IOException {
         Username= DataDriven.readFromExcel("testdata","B",3);
         Password=DataDriven.readFromExcel("testdata","C",3);
-        username.sendKeys(Username);
-        password.sendKeys(Password);
-        login.click();
+        enterValues(username,Username);
+        enterValues(password,Password);
+        clickElement(login);
         Thread.sleep(3000);
+    }
+
+    public void clickElement(WebElement pElement)
+    {
+        if(pElement.isDisplayed())
+        {
+            pElement.click();
+        }
+        else
+        {
+            System.out.println("Element not displayed to click"+pElement.getText());
+        }
+    }
+
+    public void clickElementBy(By pElement)
+    {
+        driver.findElement(pElement).click();
+
+    }
+
+    public void enterValues(WebElement pElement,String value)
+    {
+        if (pElement.isDisplayed())
+        {
+            pElement.sendKeys(value);
+        }
+        else
+        {
+            System.out.println("Element not displayed to click"+pElement.getText());
+        }
     }
 
     public void waitForElementToAppear(By element)
@@ -60,9 +90,10 @@ public class Abstractcomponent
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 
-    public void clickCartPage() throws InterruptedException {
+    public void clickCartPage() throws InterruptedException
+    {
         Thread.sleep(3000);
-        CartPage.click();
+        clickElement(CartPage);
     }
 
     public void scrollTillElement(WebElement element)
@@ -70,6 +101,7 @@ public class Abstractcomponent
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
+
 
     public void randomNumGeneration(WebElement element)
     {

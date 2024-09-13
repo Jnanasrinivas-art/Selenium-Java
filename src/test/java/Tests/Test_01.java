@@ -13,7 +13,7 @@ public class Test_01 extends BaseTest
       @Test(priority = 1,groups = {"smoke","regression"},description = "Login into the Application")
       public void Test1() throws InterruptedException, IOException
       {
-          land_page.loginApplication();
+          abstrct_comp.loginApplication();
       }
 
       @Test(priority = 2,groups = {"smoke","regression"},description = "Select the Item and Add it into the cart and navigate to cartpage")

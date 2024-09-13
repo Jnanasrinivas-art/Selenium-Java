@@ -37,10 +37,10 @@ public class PaymentPage extends Abstractcomponent
 
     By dropdown = By.cssSelector(".ta-results");
 
-
     public void enterCountry() throws InterruptedException
     {
-        country.sendKeys("Ind");
+        //country.sendKeys("Ind");
+        enterValues(country,"Ind");
         waitForElementToAppear(dropdown);
     }
 
@@ -53,18 +53,20 @@ public class PaymentPage extends Abstractcomponent
            if(eachCountryText.equalsIgnoreCase(countryName))
            {
                System.out.println(eachCountryText);
-               eachCountry.click();
+               clickElement(eachCountry);
                break;
            }
        }
        Thread.sleep(3000);
        scrollTillElement(placeOrder);
        Thread.sleep(2000);
-       placeOrder.click();
+       //placeOrder.click();
+        clickElement(placeOrder);
        Thread.sleep(3000);
     }
 
-    public String validateConfirmationMsg()  {
+    public String validateConfirmationMsg()
+    {
         return SucMsg.getText();
     }
 
