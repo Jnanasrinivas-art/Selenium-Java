@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    
-    <groups>
-        <run>
-            <include name="smoke"/>
-        </run>
-    </groups>
+    <listeners>
+        <listener class-name="reportConfig.ExtentReport"/>
+    </listeners>
 
-    <test verbose="2" preserve-order="true" name="D:/Newcode" >
+    <test verbose="2" preserve-order="true" name="smoke testcases" >
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
         <classes>
             <class name="Tests.Test_01"/>
         </classes>
