@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 import java.util.Random;
 
 
@@ -22,8 +23,6 @@ public class Abstractcomponent
 
    String Username;
    String Password;
-
-   //int number;
 
     public Abstractcomponent(WebDriver driver) {
         this.driver=driver;
@@ -45,9 +44,9 @@ public class Abstractcomponent
     @FindBy(xpath = "//h1[@class='hero-primary']")
     public WebElement SucMsg;
 
-    public void loginApplication() throws InterruptedException, IOException {
-        Username= DataDriven.readFromExcel("testdata","B",3);
-        Password=DataDriven.readFromExcel("testdata","C",3);
+    public void loginApplication(String pSheet,int pRow) throws InterruptedException, IOException {
+        Username= DataDriven.readFromExcel(pSheet,"B",pRow);
+        Password=DataDriven.readFromExcel(pSheet,"C",pRow);
         enterValues(username,Username);
         enterValues(password,Password);
         clickElement(login);
@@ -94,6 +93,19 @@ public class Abstractcomponent
     {
         Thread.sleep(3000);
         clickElement(CartPage);
+    }
+
+    public void selectOptionFromSuggestionDropdown(String value,List<WebElement> element) throws InterruptedException, IOException {
+        for(WebElement eachElement : element)
+        {
+            String eachElementText = eachElement.getText();
+            if(eachElementText.equalsIgnoreCase(value))
+            {
+                System.out.println(eachElementText);
+                clickElement(eachElement);
+                break;
+            }
+        }
     }
 
     public void scrollTillElement(WebElement element)

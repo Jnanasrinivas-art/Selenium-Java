@@ -4,7 +4,7 @@
     <listeners>
         <listener class-name="reportConfig.ExtentReport"/>
     </listeners>
-    <test verbose="2" preserve-order="true" name="D:/Newcode" >
+    <test verbose="2" preserve-order="true" name="D:/Newcode">
         <classes>
             <class name="Tests.Test_01"/>
         </classes>

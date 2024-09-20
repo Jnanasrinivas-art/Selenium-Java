@@ -32,8 +32,8 @@ public class CheckoutPage extends Abstractcomponent
     @FindBy(xpath="//button[text()='Checkout']")
     public WebElement checkout;
 
-    public void checkProduct() throws InterruptedException, IOException {
-        productName= DataDriven.readFromExcel("testdata","D",3);
+    public void checkProduct(String pSheet,int pRow) throws InterruptedException, IOException {
+        productName= DataDriven.readFromExcel(pSheet,"D",pRow);
        for(WebElement eachItem : Items)
        {
            String productText = eachItem.getText();

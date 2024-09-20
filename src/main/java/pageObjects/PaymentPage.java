@@ -44,24 +44,14 @@ public class PaymentPage extends Abstractcomponent
         waitForElementToAppear(dropdown);
     }
 
-    public void selectCountry() throws InterruptedException, IOException {
-        countryName= DataDriven.readFromExcel("testdata","E",3);
-       enterCountry();
-       for(WebElement eachCountry : countries)
-       {
-           String eachCountryText = eachCountry.getText();
-           if(eachCountryText.equalsIgnoreCase(countryName))
-           {
-               System.out.println(eachCountryText);
-               clickElement(eachCountry);
-               break;
-           }
-       }
+    public void selectCountry(String pSheet,int pRow) throws InterruptedException, IOException {
+        countryName= DataDriven.readFromExcel(pSheet,"E",pRow);
+         enterCountry();
+        selectOptionFromSuggestionDropdown(countryName,countries);
        Thread.sleep(3000);
        scrollTillElement(placeOrder);
        Thread.sleep(2000);
-       //placeOrder.click();
-        clickElement(placeOrder);
+       clickElement(placeOrder);
        Thread.sleep(3000);
     }
 

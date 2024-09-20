@@ -16,8 +16,6 @@ public class ExtentReport implements ITestListener
     public ExtentReports extentReport;   // Main class, which consolidates entire test execution
     public ExtentTest test;    // used for storing,current instance particular test.
 
-    public int p;
-
     @Override
     public void onStart(ITestContext context)
     {

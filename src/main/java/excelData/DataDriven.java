@@ -14,6 +14,7 @@ public class DataDriven
     // Selenium WebDriver be default does not support Excel,need to use third party library Apache POI
 
     public static String readFromExcel(String sheetName, String colLetter, int rowNum) throws IOException {
+
         //fileInputStream for reading mode
         //FileOutputStream for writing mode
 
