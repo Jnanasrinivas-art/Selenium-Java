@@ -39,9 +39,4 @@ public class Test_01 extends BaseTest
         confirmationMsg = payment_page.validateConfirmationMsg();
         Assert.assertEquals(confirmationMsg,finalSucMsg);
     }
-
-    public void test5()
-    {
-    }
-
 }
