@@ -27,7 +27,7 @@ public class Test_02 extends BaseTest
 
     void test7()
     {
-      System.out.println("a");
+      System.out.println("an");
     }
 
 
