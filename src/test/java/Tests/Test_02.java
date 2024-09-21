@@ -26,8 +26,9 @@ public class Test_02 extends BaseTest
         Assert.assertEquals(confirmationMsg,finalSucMsg);
     }
 
-    void test2()
+    void test3()
     {
+        
     }
 
 }
