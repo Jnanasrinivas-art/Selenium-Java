@@ -27,6 +27,11 @@ public class Test_02 extends BaseTest
 
     void test4()
     {
+
+    }
+
+    void test3()
+    {
         
     }
 }
