@@ -21,6 +21,8 @@ public class Abstractcomponent
 {
    public WebDriver driver;
 
+   public WebDriverWait wait;
+
    String Username;
    String Password;
 
@@ -65,9 +67,9 @@ public class Abstractcomponent
         }
     }
 
-    public void clickElementBy(By pElement)
+    public void clickElement(By byElement)
     {
-        driver.findElement(pElement).click();
+        driver.findElement(byElement).click();
 
     }
 
@@ -85,7 +87,7 @@ public class Abstractcomponent
 
     public void waitForElementToAppear(By element)
     {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(6));
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 
