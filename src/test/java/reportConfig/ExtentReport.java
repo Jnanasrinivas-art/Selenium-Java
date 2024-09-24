@@ -31,7 +31,6 @@ public class ExtentReport implements ITestListener
     public void onTestStart(ITestResult result)
     {
         test = extentReport.createTest(String.valueOf(result.getMethod().getDescription()));
-
     }
 
     @Override

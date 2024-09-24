@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 
 import java.io.IOException;
@@ -26,16 +27,18 @@ public class Abstractcomponent
    String Username;
    String Password;
 
+    String expLogMsg="Login Successfull";
+
     public Abstractcomponent(WebDriver driver) {
         this.driver=driver;
         PageFactory.initElements(driver,this);
     }
 
     @FindBy(xpath = "//input[@placeholder='email@example.com']")
-    public WebElement username;
+    private WebElement username;
 
     @FindBy(xpath = "//input[@id='userPassword']")
-    public WebElement password;
+    private WebElement password;
 
     @FindBy(xpath = "//input[@id='login']")
     public WebElement login;
@@ -46,13 +49,17 @@ public class Abstractcomponent
     @FindBy(xpath = "//h1[@class='hero-primary']")
     public WebElement SucMsg;
 
+    @FindBy(xpath = "//div[text()=' Login Successfully ']")
+    public WebElement logsucmsg;
+
     public void loginApplication(String pSheet,int pRow) throws InterruptedException, IOException {
         Username= DataDriven.readFromExcel(pSheet,"B",pRow);
         Password=DataDriven.readFromExcel(pSheet,"C",pRow);
         enterValues(username,Username);
         enterValues(password,Password);
         clickElement(login);
-        Thread.sleep(3000);
+        String actualLogMsg = validateMsg(logsucmsg);
+        Assert.assertEquals(actualLogMsg,expLogMsg);
     }
 
     public void clickElement(WebElement pElement)
@@ -69,8 +76,37 @@ public class Abstractcomponent
 
     public void clickElement(By byElement)
     {
-        driver.findElement(byElement).click();
+        WebElement element = driver.findElement(byElement);
+        if(element.isDisplayed())
+        {
+          element.click();
+        }
+        else
+        {
+            System.out.println("Element not displayed to click"+element.getText());
+        }
+    }
 
+    public void clickElements(By byElement) {
+        List<WebElement> elements = driver.findElements(byElement);
+
+        if (elements.isEmpty())
+        {
+            System.out.println("No elements found to click.");
+        }
+        else
+        {
+            for (WebElement element : elements) {
+                if (element.isDisplayed())
+                {
+                    element.click();
+                }
+                else
+                {
+                    System.out.println("Element not displayed: " + element.getText());
+                }
+            }
+        }
     }
 
     public void enterValues(WebElement pElement,String value)
@@ -89,6 +125,12 @@ public class Abstractcomponent
     {
         wait = new WebDriverWait(driver, Duration.ofSeconds(6));
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    }
+
+    public void waitForElementToAppear(WebElement pElement)
+    {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(6));
+        wait.until(ExpectedConditions.visibilityOf(pElement));
     }
 
     public void clickCartPage() throws InterruptedException
@@ -130,6 +172,12 @@ public class Abstractcomponent
         System.out.println("Generated number "+number1);
         System.out.println("Generated number "+number4);
         element.sendKeys(str);
+    }
+
+    public String validateMsg(WebElement pElement)
+    {
+        waitForElementToAppear(pElement);
+        return pElement.getText();
     }
     
 }

@@ -39,6 +39,7 @@ public class CartPage extends Abstractcomponent
                 System.out.println("Product Name is "+productName);
                 product.findElement(AddToCart).click();
                 Thread.sleep(2000);
+                break;
             }
         }
         waitForElementToAppear(productMsg);

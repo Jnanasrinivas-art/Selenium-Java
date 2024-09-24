@@ -23,10 +23,10 @@ public class LandingPage extends Abstractcomponent
     }
 
     @FindBy(xpath = "//input[@placeholder='email@example.com']")
-    public WebElement username;
+    private WebElement username;
 
     @FindBy(xpath = "//input[@id='userPassword']")
-    public WebElement password;
+    private WebElement password;
 
     @FindBy(xpath = "//input[@id='login']")
     public WebElement login;
