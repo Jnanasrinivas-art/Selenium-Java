@@ -6,7 +6,7 @@
     </listeners>
     <test verbose="2" preserve-order="true" name="D:/Newcode">
         <classes>
-            <class name="Tests.Test_03"/>
+            <class name="Tests.Test_01"/>
         </classes>
     </test>
 </suite>

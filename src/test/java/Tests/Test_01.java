@@ -11,7 +11,7 @@ public class Test_01 extends BaseTest
     String testData_Sheet = "Test-sheet";
 
     String finalSucMsg ="THANKYOU FOR THE ORDER.";
-    String confirmationMsg="";
+    String confirmationMsg;
 
       @Test(priority = 1,groups = {"smoke","regression"},description = "Login into the Application")
       public void Test1() throws InterruptedException, IOException

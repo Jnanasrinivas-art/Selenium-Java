@@ -23,11 +23,7 @@ public class Abstractcomponent
    public WebDriver driver;
 
    public WebDriverWait wait;
-
-   String Username;
-   String Password;
-
-    String expLogMsg="Login Successfull";
+    String expLogMsg="Login Successfully";
 
     public Abstractcomponent(WebDriver driver) {
         this.driver=driver;
@@ -53,8 +49,8 @@ public class Abstractcomponent
     public WebElement logsucmsg;
 
     public void loginApplication(String pSheet,int pRow) throws InterruptedException, IOException {
-        Username= DataDriven.readFromExcel(pSheet,"B",pRow);
-        Password=DataDriven.readFromExcel(pSheet,"C",pRow);
+       String Username= DataDriven.readFromExcel(pSheet,"B",pRow);
+       String Password=DataDriven.readFromExcel(pSheet,"C",pRow);
         enterValues(username,Username);
         enterValues(password,Password);
         clickElement(login);
