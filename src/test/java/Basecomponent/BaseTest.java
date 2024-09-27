@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
 import pageObjects.CartPage;
 import pageObjects.CheckoutPage;
 import pageObjects.LandingPage;
@@ -61,7 +62,7 @@ public class BaseTest
     @BeforeClass(alwaysRun = true)
     public void openBrowser() throws IOException
     {
-        driver =initializeDriver();
+        driver=initializeDriver();
         land_page = new LandingPage(driver);
         cart_page = new CartPage(driver);
         abstrct_comp = new Abstractcomponent(driver);
