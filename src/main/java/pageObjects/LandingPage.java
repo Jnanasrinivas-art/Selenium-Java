@@ -30,6 +30,7 @@ public class LandingPage extends Abstractcomponent
     @FindBy(xpath = "//input[@id='login']")
     public WebElement login;
 
+
     public void loginApplication(String pSheet,int pRow) throws InterruptedException, IOException {
         String Username= DataDriven.readFromExcel(pSheet,"B",pRow);
         String Password=DataDriven.readFromExcel(pSheet,"C",pRow);

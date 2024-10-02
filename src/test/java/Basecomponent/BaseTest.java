@@ -29,7 +29,7 @@ public class BaseTest
     public final int implicitwait=6;
     public final int page_load_timeout=10;
 
-    public WebDriver initializeDriver() throws IOException {
+    public WebDriver initializeDriver() throws Exception {
         Properties prop = new Properties();
         FileInputStream fis = new FileInputStream("src/main/java/globalData/GlobalData.properties");
         prop.load(fis);
@@ -50,7 +50,7 @@ public class BaseTest
         }
         else
         {
-            System.out.println("please select proper browser");
+            throw new Exception("please select proper browser");
         }
         driver.get(url);
         driver.manage().window().maximize();
@@ -60,7 +60,7 @@ public class BaseTest
     }
 
     @BeforeClass(alwaysRun = true)
-    public void openBrowser() throws IOException
+    public void openBrowser() throws Exception
     {
         driver=initializeDriver();
         land_page = new LandingPage(driver);
