@@ -32,10 +32,10 @@ public class Abstractcomponent
     }
 
     @FindBy(xpath = "//input[@placeholder='email@example.com']")
-    private WebElement username;
+    public WebElement username;
 
     @FindBy(xpath = "//input[@id='userPassword']")
-    private WebElement password;
+    public WebElement password;
 
     @FindBy(xpath = "//input[@id='login']")
     public WebElement login;
@@ -118,16 +118,19 @@ public class Abstractcomponent
 
     public void enterValues(WebElement pElement,String value)
     {
-        try {
-            if (pElement.isDisplayed()) {
+        try
+        {
+            if (pElement.isDisplayed())
+            {
                 pElement.sendKeys(value);
-            } else {
+            } else
+            {
                 System.out.println("Element not displayed to click" + pElement.getText());
             }
         }
         catch (Exception e)
         {
-            System.out.println("An exception occurred while trying to send keys: " + e.getMessage());
+            System.out.println("Element not present to send data" + e.getMessage());
         }
     }
 
