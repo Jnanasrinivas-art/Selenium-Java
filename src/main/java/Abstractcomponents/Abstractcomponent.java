@@ -61,26 +61,36 @@ public class Abstractcomponent
 
     public void clickElement(WebElement pElement)
     {
-        if(pElement.isDisplayed())
-        {
-            pElement.click();
+        try {
+            if (pElement.isDisplayed())
+            {
+                pElement.click();
+            }
+            else {
+                System.out.println("Element not displayed to click" + pElement.getText());
+            }
         }
-        else
+        catch (Exception e)
         {
-            System.out.println("Element not displayed to click"+pElement.getText());
+            System.out.println("An exception occurred while trying to click  " + e.getMessage());
         }
     }
 
     public void clickElement(By byElement)
     {
-        WebElement element = driver.findElement(byElement);
-        if(element.isDisplayed())
-        {
-          element.click();
+        try {
+            WebElement element = driver.findElement(byElement);
+            if (element.isDisplayed())
+            {
+                element.click();
+            }
+            else {
+                System.out.println("Element not displayed to click" + element.getText());
+            }
         }
-        else
+        catch (Exception e)
         {
-            System.out.println("Element not displayed to click"+element.getText());
+            System.out.println("An exception occurred while trying to click " + e.getMessage());
         }
     }
 
@@ -108,13 +118,16 @@ public class Abstractcomponent
 
     public void enterValues(WebElement pElement,String value)
     {
-        if (pElement.isDisplayed())
-        {
-            pElement.sendKeys(value);
+        try {
+            if (pElement.isDisplayed()) {
+                pElement.sendKeys(value);
+            } else {
+                System.out.println("Element not displayed to click" + pElement.getText());
+            }
         }
-        else
+        catch (Exception e)
         {
-            System.out.println("Element not displayed to click"+pElement.getText());
+            System.out.println("An exception occurred while trying to send keys: " + e.getMessage());
         }
     }
 
