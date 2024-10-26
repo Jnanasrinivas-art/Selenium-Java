@@ -22,7 +22,6 @@ import java.util.Random;
 public class Abstractcomponent
 {
    public WebDriver driver;
-
    public WebDriverWait wait;
     String expLogMsg="Login Successfully";
 
