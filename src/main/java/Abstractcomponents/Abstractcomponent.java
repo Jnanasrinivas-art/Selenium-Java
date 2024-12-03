@@ -1,10 +1,8 @@
 package Abstractcomponents;
 
+import com.google.common.io.Files;
 import excelData.DataDriven;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,6 +11,7 @@ import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
@@ -60,13 +59,11 @@ public class Abstractcomponent
 
     public void clickElement(WebElement pElement)
     {
-        try {
+        try
+        {
             if (pElement.isDisplayed())
             {
                 pElement.click();
-            }
-            else {
-                System.out.println("Element not displayed to click" + pElement.getText());
             }
         }
         catch (Exception e)
@@ -77,14 +74,12 @@ public class Abstractcomponent
 
     public void clickElement(By byElement)
     {
-        try {
-            WebElement element = driver.findElement(byElement);
-            if (element.isDisplayed())
+        WebElement element = driver.findElement(byElement);
+        try
+        {
+            if(element.isDisplayed())
             {
                 element.click();
-            }
-            else {
-                System.out.println("Element not displayed to click" + element.getText());
             }
         }
         catch (Exception e)
@@ -122,9 +117,6 @@ public class Abstractcomponent
             if (pElement.isDisplayed())
             {
                 pElement.sendKeys(value);
-            } else
-            {
-                System.out.println("Element not displayed to click" + pElement.getText());
             }
         }
         catch (Exception e)
@@ -191,5 +183,4 @@ public class Abstractcomponent
         waitForElementToAppear(pElement);
         return pElement.getText();
     }
-    
 }

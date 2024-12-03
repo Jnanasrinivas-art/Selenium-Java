@@ -9,28 +9,23 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class ExtentReport implements ITestListener
-{
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-    public ExtentSparkReporter sparkReporter;  // helper class for ExtentReports for making some UI configuration
-    public ExtentReports extentReport;   // Main class, which consolidates entire test execution
+public class Listeners implements ITestListener
+{
+    public ExtentReports extent=ExtentReporterNG.config();   // Main class, which consolidates entire test execution
     public ExtentTest test;    // used for storing,current instance particular test.
 
-    @Override
-    public void onStart(ITestContext context)
-    {
-        sparkReporter = new ExtentSparkReporter(System.getProperty("user.dir")+"/reports/myReport.html");
-        sparkReporter.config().setDocumentTitle("Web Automation Results");
-        sparkReporter.config().setReportName("Functional testing");
-        sparkReporter.config().setTheme(Theme.STANDARD);
-        extentReport = new ExtentReports();
-        extentReport.attachReporter(sparkReporter);
-    }
+//    @Override
+//    public void onStart(ITestContext context) {
+//        extent = ExtentReporterNG.config(); // Create a new report for each context
+//    }
 
     @Override
     public void onTestStart(ITestResult result)
     {
-        test = extentReport.createTest(String.valueOf(result.getMethod().getDescription()));
+        test = extent.createTest(String.valueOf(result.getMethod().getDescription()));
     }
 
     @Override
@@ -55,7 +50,7 @@ public class ExtentReport implements ITestListener
     @Override
     public void onFinish(ITestContext context)
     {
-        extentReport.flush();  //if not closed, it ll be in listening mode
+        extent.flush();  //if not closed, it ll be in listening mode
     }
 
 }

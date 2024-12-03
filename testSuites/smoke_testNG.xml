@@ -3,7 +3,7 @@
 
 <suite name="All Test Suite">
     <listeners>
-        <listener class-name="reportConfig.ExtentReport"/>
+        <listener class-name="reportConfig.Listeners"/>
     </listeners>
     <test verbose="2" preserve-order="true" name="smoke testcases" >
         <groups>
