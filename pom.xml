@@ -21,7 +21,15 @@
             <artifactId>selenium-java</artifactId>
             <version>4.23.0</version>
         </dependency>
-<!--testng-->
+
+        <!--WebdriverManager-selenium-->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.9.2</version>
+        </dependency>
+
+        <!--testng-->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>

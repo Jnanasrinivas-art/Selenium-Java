@@ -41,7 +41,7 @@ public class BaseTest
 
         if(browserName.equalsIgnoreCase("chrome"))
         {
-          driver= new ChromeDriver();
+            driver = new ChromeDriver();
         }
         else if (browserName.equalsIgnoreCase("firefox"))
         {
