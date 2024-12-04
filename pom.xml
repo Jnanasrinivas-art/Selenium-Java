@@ -22,7 +22,7 @@
             <version>4.23.0</version>
         </dependency>
 
-        <!--WebdriverManager-selenium-->
+        <!--WebDriverManager-selenium-->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
