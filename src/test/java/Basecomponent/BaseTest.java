@@ -30,6 +30,8 @@ public class BaseTest
     public final int implicitwait=6;
     public final int page_load_timeout=10;
 
+    public SoftAssert softAssert = new SoftAssert();
+
     public WebDriver initializeDriver() throws Exception {
         Properties prop = new Properties();
         FileInputStream fis = new FileInputStream("src/main/java/globalData/GlobalData.properties");
@@ -74,6 +76,7 @@ public class BaseTest
     @AfterClass(alwaysRun = true)
     public void closeBrowser()
     {
+        softAssert.assertAll();
         driver.quit();
     }
     

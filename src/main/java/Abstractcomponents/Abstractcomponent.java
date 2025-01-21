@@ -65,6 +65,10 @@ public class Abstractcomponent
             {
                 pElement.click();
             }
+            else
+            {
+                System.out.println("Element not displayed for click Item: "+ pElement.getText());
+            }
         }
         catch (Exception e)
         {
@@ -77,9 +81,13 @@ public class Abstractcomponent
         WebElement element = driver.findElement(byElement);
         try
         {
-            if(element.isDisplayed())
-            {
+            if(element.isDisplayed()) {
+
                 element.click();
+            }
+            else
+            {
+                System.out.println("Element not displayed for click Item: "+ byElement);
             }
         }
         catch (Exception e)
@@ -117,6 +125,10 @@ public class Abstractcomponent
             if (pElement.isDisplayed())
             {
                 pElement.sendKeys(value);
+            }
+            else
+            {
+                System.out.println("Element not displayed for click Item: "+ pElement.getText());
             }
         }
         catch (Exception e)
