@@ -1,6 +1,7 @@
 package Basecomponent;
 
 import Abstractcomponents.Abstractcomponent;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -41,7 +42,8 @@ public class BaseTest
 
         if(browserName.equalsIgnoreCase("chrome"))
         {
-          driver= new ChromeDriver();
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
         }
         else if (browserName.equalsIgnoreCase("firefox"))
         {
