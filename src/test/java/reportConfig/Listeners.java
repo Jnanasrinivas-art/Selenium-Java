@@ -42,6 +42,11 @@ public class Listeners implements ITestListener
     }
 
     @Override
+    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+        test.log(Status.WARNING, "Test failed but within success percentage: " + result.getName());
+    }
+
+    @Override
     public void onTestSkipped(ITestResult result)
     {
         test.skip("Test skipped");
