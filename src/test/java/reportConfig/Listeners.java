@@ -1,5 +1,6 @@
 package reportConfig;
 
+import Basecomponent.BaseTest;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -12,7 +13,7 @@ import org.testng.ITestResult;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Listeners implements ITestListener
+public class Listeners extends BaseTest implements ITestListener
 {
     public ExtentReports extent=ExtentReporterNG.config();   // Main class, which consolidates entire test execution
     public ExtentTest test;    // used for storing,current instance particular test.
